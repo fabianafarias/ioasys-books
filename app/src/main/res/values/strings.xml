@@ -2,6 +2,7 @@
     <string name="app_name">ioasys-books</string>
     <string name="enter_btn">Entrar</string>
     <string name="error_text">Email e/ou senha incorretos.</string>
-    <string name="password_text">Password</string>
+    <string name="password_hint">Password</string>
     <string name="logo_text">Books</string>
+    <string name="email_hint">Email</string>
 </resources>

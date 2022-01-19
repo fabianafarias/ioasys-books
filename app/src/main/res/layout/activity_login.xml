@@ -40,7 +40,7 @@
         android:layout_marginTop="80dp"
         android:padding="16dp"
         android:background="#32000000"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,8 @@
             android:id="@+id/textFieldEditEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +64,7 @@
         android:layout_marginTop="16dp"
         android:padding="16dp"
         android:background="#52000000"
-        android:hint="@string/password_text"
+        android:hint="@string/password_hint"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,8 @@
             android:id="@+id/textFieldEditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
