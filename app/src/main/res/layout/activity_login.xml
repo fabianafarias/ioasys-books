@@ -38,20 +38,24 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="80dp"
-        android:padding="16dp"
-        android:background="#32000000"
+        android:background="#52000000"
         android:hint="@string/email_hint"
         android:textColorHint="@color/white"
+        app:hintTextColor="#80FFFFFF"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtlabel"
         app:layout_constraintVertical_chainStyle="packed">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textFieldEditEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/bg_input"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,20 +66,24 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
         android:background="#52000000"
         android:hint="@string/password_hint"
         android:textColorHint="@color/white"
+        app:hintTextColor="#80FFFFFF"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textFieldEmail"
         app:layout_constraintVertical_chainStyle="packed">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textFieldEditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_input"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -85,8 +93,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="26dp"
         android:text="@string/enter_btn"
         android:textColor="#B22E6F"
         android:backgroundTint="@color/white"
