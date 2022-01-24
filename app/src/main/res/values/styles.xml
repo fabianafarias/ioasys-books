@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Book_Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Book_Subtitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/subtitle</item>
+    </style>
+
+    <style name="Book_Description">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/description</item>
+    </style>
+
+    <style name="ListEmpty">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/title_50</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+</resources>

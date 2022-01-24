@@ -4,40 +4,34 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.RecyclerView
+import br.com.ioasys.ioasys_books.adapter.BookListAdapter
+import br.com.ioasys.ioasys_books.model.Book
 
 class BookListActivity : AppCompatActivity() {
+
+    private lateinit var bookListAdapter: BookListAdapter
+
+    private val rvBooks: RecyclerView by lazy {
+        findViewById(R.id.rvBooks)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_list)
 
-        Log.i(TAG, "onCreate: Main")
+        setBookLitData()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG, "onStart: Main")
+    private fun setBookLitData(){
+        bookListAdapter = BookListAdapter()
+        rvBooks.adapter = bookListAdapter
+
+        bookListAdapter.submitList(Book.getMockList())
+
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        Log.i(TAG, "onRestart: Main")
-    }
 
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG, "onPause: Main")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG, "onStop: Main")        
-        
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG, "onDestroy: Main")
-    }
 
 
 }
