@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ioasysbooks">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.MainActivity"
             android:exported="true" >
 
             <intent-filter>
@@ -20,10 +20,7 @@
             </intent-filter>
 
         </activity>
-        <activity
-            android:name=".BookListActivity"
-            android:exported="false">
-        </activity>
+
     </application>
 
 </manifest>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".fragments.LoginFragment">
+
+<androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/imgBackground"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:src="@drawable/img_background_login"
+    android:scaleType="centerCrop"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+<androidx.appcompat.widget.AppCompatTextView
+    style="@style/LoginTitle"
+    android:id="@+id/txtlabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginBottom="80dp"
+    android:drawableStart="@drawable/ic_ioasys"
+    android:drawablePadding="8dp"
+    android:text="@string/logo_text"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_chainStyle="packed"/>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/textFieldEmail"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="80dp"
+    android:background="#52000000"
+    android:hint="@string/email_hint"
+    android:textColorHint="@color/white"
+    app:hintTextColor="#80FFFFFF"
+    app:boxStrokeWidth="0dp"
+    app:boxStrokeWidthFocused="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/txtlabel"
+    app:layout_constraintVertical_chainStyle="packed">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textFieldEditEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bg_input"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/textFieldPassword"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="16dp"
+    android:background="#52000000"
+    android:hint="@string/password_hint"
+    android:textColorHint="@color/white"
+    app:hintTextColor="#80FFFFFF"
+    app:boxStrokeWidth="0dp"
+    app:boxStrokeWidthFocused="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textFieldEmail"
+    app:layout_constraintVertical_chainStyle="packed">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textFieldEditPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_input"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/enterButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:text="@string/enter_btn"
+    android:textColor="#B22E6F"
+    android:backgroundTint="@color/white"
+    app:cornerRadius="44dp"
+    app:layout_constraintBottom_toBottomOf="@id/textFieldPassword"
+    app:layout_constraintEnd_toEndOf="@id/textFieldPassword"
+    app:layout_constraintTop_toTopOf="@id/textFieldPassword" />
+
+<androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/txtError"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="@string/error_text"
+    android:textColor="@color/white"
+    android:textSize="14sp"
+    android:visibility="gone"
+    app:layout_constraintEnd_toEndOf="@id/textFieldPassword"
+    app:layout_constraintTop_toBottomOf="@id/textFieldPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
