@@ -1,4 +1,4 @@
-package br.com.ioasys.ioasys_books.adapter
+package br.com.ioasys.ioasys_books.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.ioasys.ioasys_books.databinding.BookItemBinding
-import br.com.ioasys.ioasys_books.model.Book
+import br.com.ioasys.ioasys_books.domain.model.Book
 
 class BookListAdapter(
     private val onBookClickListener: BookClickListener

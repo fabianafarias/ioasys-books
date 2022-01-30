@@ -1,4 +1,4 @@
-package br.com.ioasys.ioasys_books.fragments
+package br.com.ioasys.ioasys_books.presentation.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

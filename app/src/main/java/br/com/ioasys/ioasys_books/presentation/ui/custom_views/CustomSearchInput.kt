@@ -1,4 +1,4 @@
-package br.com.ioasys.ioasys_books.custom_views
+package br.com.ioasys.ioasys_books.presentation.ui.custom_views
 
 import android.content.Context
 import android.util.AttributeSet

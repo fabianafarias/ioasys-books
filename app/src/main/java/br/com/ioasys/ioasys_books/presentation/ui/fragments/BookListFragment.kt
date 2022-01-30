@@ -1,16 +1,15 @@
-package br.com.ioasys.ioasys_books.fragments
+package br.com.ioasys.ioasys_books.presentation.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.navArgs
-import br.com.ioasys.ioasys_books.adapter.BookClickListener
-import br.com.ioasys.ioasys_books.adapter.BookListAdapter
+import br.com.ioasys.ioasys_books.presentation.adapter.BookClickListener
+import br.com.ioasys.ioasys_books.presentation.adapter.BookListAdapter
 import br.com.ioasys.ioasys_books.databinding.FragmentBookListBinding
-import br.com.ioasys.ioasys_books.model.Book
+import br.com.ioasys.ioasys_books.domain.model.Book
 
 class BookListFragment : Fragment(), BookClickListener {
 
