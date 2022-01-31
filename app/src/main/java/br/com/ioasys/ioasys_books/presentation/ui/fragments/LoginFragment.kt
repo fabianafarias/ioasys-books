@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import br.com.ioasys.ioasys_books.databinding.FragmentLoginBinding
@@ -34,34 +35,48 @@ class LoginFragment : Fragment() {
     }
 
     private fun setListener() {
+        binding.enterButton.setOnClickListener {
         binding.run {
             viewModel.login(
-               textFieldEditEmail.text.toString(),
+                textFieldEditEmail.text.toString(),
                 textFieldEditPassword.text.toString()
             )
-        }
 
+            textFieldEditEmail.addTextChangedListener {
+                txtError.visibility = View.GONE
+            }
+            textFieldEditPassword.addTextChangedListener {
+                txtError.visibility = View.GONE
+            }
+        }
+      }
     }
 
 
-    fun addObserver(){
+    private fun addObserver(){
         viewModel.loggedUsedViewState.observe(viewLifecycleOwner) { state ->
 
             when(state){
                 is ViewState.Success -> {
                     findNavController().navigate(
-                        LoginFragmentDirections.actionLoginFragmentToBookListFragment(15)
+                        (LoginFragmentDirections.actionLoginFragmentToBookListFragment(15))
                     )
                 }
                 is ViewState.Error -> {
+                    binding.progressDialog.visibility = View.GONE
                     binding.txtError.visibility = View.VISIBLE
                 }
+                is ViewState.Loading -> {
+                    binding.progressDialog.visibility = View.VISIBLE
+                }
+                else -> Unit
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        viewModel.resetViewState()
         _binding = null
     }
 

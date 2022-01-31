@@ -53,9 +53,10 @@ tools:context=".presentation.ui.fragments.LoginFragment">
         android:id="@+id/textFieldEditEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:inputType="textEmailAddress"
         android:background="@drawable/bg_input"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:textColor="@color/white"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </com.google.android.material.textfield.TextInputLayout>
