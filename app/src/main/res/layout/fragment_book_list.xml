@@ -27,13 +27,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btLogin"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/ic_log_out"
         app:layout_constraintBottom_toBottomOf="@id/txtlabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txtlabel" />
+        app:layout_constraintTop_toTopOf="@id/txtlabel"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <br.com.ioasys.ioasys_books.presentation.ui.custom_views.CustomSearchInput
         android:id="@+id/edSearch"
@@ -59,5 +60,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEmptyList"
+        style="@style/ListEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Não encontramos nenhum\n livro com esses termos."
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rvBooks"
+        app:layout_constraintVertical_bias="0.25"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

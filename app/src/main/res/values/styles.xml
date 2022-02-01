@@ -35,7 +35,7 @@
     </style>
 
     <style name="ListEmpty">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/title_50</item>
         <item name="android:textAlignment">center</item>
     </style>
