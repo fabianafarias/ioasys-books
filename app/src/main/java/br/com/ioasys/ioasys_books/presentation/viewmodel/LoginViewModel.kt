@@ -3,9 +3,11 @@ package br.com.ioasys.ioasys_books.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import br.com.ioasys.ioasys_books.domain.repositories.LoginRepository
-import br.com.ioasys.ioasys_books.util.ViewState
-import br.com.ioasys.ioasys_books.util.postNeutral
+import br.com.ioasys.ioasys_books.util.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val loginRepository: LoginRepository
@@ -17,21 +19,22 @@ class LoginViewModel(
 
     fun login(email: String, password: String) {
 
-        loginRepository.login()
+        viewModelScope.launch {
 
-//        viewModelScope.launch {
-//
-//            _loggedUsedViewState.postLoading()
-//
-//            delay(2_000)
-//
-//            if(email.isNotEmpty() && password.isNotEmpty()) {
-//                _loggedUsedViewState.postSuccess(true)
-//            }else{
-//                _loggedUsedViewState.postError(LoginException())
-//            }
-//        }
+            _loggedUsedViewState.postLoading()
 
+           try {
+               loginRepository.login(email, password).collect {
+                   if(it.name.isNotEmpty()) {
+                       _loggedUsedViewState.postSuccess(true)
+                   } else {
+                       _loggedUsedViewState.postError(Exception("Body do usuário vazio"))
+                   }
+               }
+           } catch (err: Exception) {
+               _loggedUsedViewState.postError(err)
+           }
+        }
     }
     fun resetViewState(){
         _loggedUsedViewState.postNeutral()

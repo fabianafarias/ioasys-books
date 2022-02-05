@@ -1,23 +1,23 @@
 package br.com.ioasys.ioasys_books.presentation.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.ioasys.ioasys_books.databinding.FragmentLoginBinding
 import br.com.ioasys.ioasys_books.presentation.viewmodel.LoginViewModel
 import br.com.ioasys.ioasys_books.util.ViewState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = _binding!!
 
-    private val viewModel : LoginViewModel by viewModels()
+    private val loginViewModel : LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
     private fun setListener() {
         binding.enterButton.setOnClickListener {
         binding.run {
-            viewModel.login(
+            loginViewModel.login(
                 textFieldEditEmail.text.toString(),
                 textFieldEditPassword.text.toString()
             )
@@ -54,7 +54,7 @@ class LoginFragment : Fragment() {
 
 
     private fun addObserver(){
-        viewModel.loggedUsedViewState.observe(viewLifecycleOwner) { state ->
+        loginViewModel.loggedUsedViewState.observe(viewLifecycleOwner) { state ->
 
             when(state){
                 is ViewState.Success -> {
@@ -63,6 +63,7 @@ class LoginFragment : Fragment() {
                     )
                 }
                 is ViewState.Error -> {
+                    binding.txtError.text = state.throwable.message
                     binding.progressDialog.visibility = View.GONE
                     binding.txtError.visibility = View.VISIBLE
                 }
@@ -76,7 +77,7 @@ class LoginFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.resetViewState()
+        loginViewModel.resetViewState()
         _binding = null
     }
 
