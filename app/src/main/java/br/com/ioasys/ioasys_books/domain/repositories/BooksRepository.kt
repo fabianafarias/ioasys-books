@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface BooksRepository {
 
-    fun getBooks(accessToken: String): Flow<List<Book>>
-
+    fun getBooks(accessToken: String, query: String?): Flow<List<Book>>
 
 }

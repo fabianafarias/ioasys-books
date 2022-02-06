@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.flow
 class LoginDatasourceImpl: LoginDatasource {
     override fun login(email: String, password: String): Flow<User> = flow {
         delay(3_000)
-        throw Exception("Algo deu errado!")
         emit(User(
             name = "Fabiana",
             birthdate = "23/01/1985",

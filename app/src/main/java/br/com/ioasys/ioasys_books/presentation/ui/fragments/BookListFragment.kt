@@ -1,18 +1,18 @@
 package br.com.ioasys.ioasys_books.presentation.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import br.com.ioasys.ioasys_books.presentation.adapter.BookClickListener
-import br.com.ioasys.ioasys_books.presentation.adapter.BookListAdapter
+import androidx.fragment.app.Fragment
 import br.com.ioasys.ioasys_books.databinding.FragmentBookListBinding
 import br.com.ioasys.ioasys_books.domain.model.Book
 import br.com.ioasys.ioasys_books.domain.model.exception.EmptyBookListException
+import br.com.ioasys.ioasys_books.presentation.adapter.BookClickListener
+import br.com.ioasys.ioasys_books.presentation.adapter.BookListAdapter
 import br.com.ioasys.ioasys_books.presentation.viewmodel.BookListViewModel
 import br.com.ioasys.ioasys_books.util.ViewState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookListFragment : Fragment(), BookClickListener {
 
@@ -20,7 +20,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private var _binding: FragmentBookListBinding? = null
     private val binding: FragmentBookListBinding get() = _binding!!
 
-    private val viewModel: BookListViewModel by viewModels()
+    private val booksViewModel: BookListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,19 +38,19 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private fun configureListeners(){
         binding.edSearch.textChangeListener = { input ->
-            viewModel.search(input)
+            booksViewModel.search(input)
         }
     }
 
     private fun setBookListData(){
         bookListAdapter = BookListAdapter(this)
         binding.rvBooks.adapter = bookListAdapter
-        viewModel.search()
+        booksViewModel.search()
     }
 
     private fun addObserver() {
 
-        viewModel.bookListViewState.observe(viewLifecycleOwner){ state ->
+        booksViewModel.bookListViewState.observe(viewLifecycleOwner){ state ->
 
             when(state) {
                 is ViewState.Success -> {
