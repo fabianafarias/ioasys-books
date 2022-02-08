@@ -10,14 +10,16 @@ import androidx.navigation.fragment.findNavController
 import br.com.ioasys.ioasys_books.databinding.FragmentLoginBinding
 import br.com.ioasys.ioasys_books.presentation.viewmodel.LoginViewModel
 import br.com.ioasys.ioasys_books.util.ViewState
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = _binding!!
 
-    private val loginViewModel : LoginViewModel by viewModel()
+    private val loginViewModel : LoginViewModel by lazy {
+        getViewModel()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
