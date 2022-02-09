@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import br.com.ioasys.ioasys_books.R
 import br.com.ioasys.ioasys_books.databinding.BottomSheetBookDetailsBinding
 import br.com.ioasys.ioasys_books.domain.model.Book
+import coil.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -59,6 +60,9 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
             tvInfoOriginBookName.text = book?.originName
             tvInfoISBN10.text = book?.isbn10
             tvInfoISBN13.text = book?.isbn13
+            imgBigBook.load(book?.imageUrl){
+                error(R.drawable.img_book)
+            }
 
             val spannableString = SpannableString("   ${book?.review}")
             val imageSpan = ImageSpan(requireContext(), R.drawable.ic_quotes)

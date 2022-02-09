@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'androidx.navigation.safeargs'
+
 }
 
 android {
@@ -56,4 +57,7 @@ dependencies {
     def okhttpVersion = "4.6.0"
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    def coilVersion = "1.4.0"
+    implementation "io.coil-kt:coil:$coilVersion"
+
 }

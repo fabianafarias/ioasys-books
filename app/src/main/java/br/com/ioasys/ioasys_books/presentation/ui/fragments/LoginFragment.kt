@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
             when(state){
                 is ViewState.Success -> {
                     findNavController().navigate(
-                        (LoginFragmentDirections.actionLoginFragmentToBookListFragment())
+                        LoginFragmentDirections.actionLoginFragmentToBookListFragment(state.data)
                     )
                 }
                 is ViewState.Error -> {

@@ -13,8 +13,8 @@ class LoginViewModel(
     private val loginRepository: LoginRepository
 ) : ViewModel() {
 
-    private val _loggedUsedViewState = MutableLiveData<ViewState<Boolean>>()
-    val loggedUsedViewState = _loggedUsedViewState as LiveData<ViewState<Boolean>>
+    private val _loggedUsedViewState = MutableLiveData<ViewState<String>>()
+    val loggedUsedViewState = _loggedUsedViewState as LiveData<ViewState<String>>
 
 
     fun login(email: String, password: String) {
@@ -26,7 +26,7 @@ class LoginViewModel(
            try {
                loginRepository.login(email, password).collect {
                    if(it.name.isNotEmpty()) {
-                       _loggedUsedViewState.postSuccess(true)
+                       _loggedUsedViewState.postSuccess(it.accessToken)
                    } else {
                        _loggedUsedViewState.postError(Exception("Body do usuário vazio"))
                    }
