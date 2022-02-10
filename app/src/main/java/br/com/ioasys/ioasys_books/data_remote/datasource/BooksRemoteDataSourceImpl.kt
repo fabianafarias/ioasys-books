@@ -1,15 +1,15 @@
 package br.com.ioasys.ioasys_books.data_remote.datasource
 
-import br.com.ioasys.ioasys_books.data.datasource.BooksDatasource
+import br.com.ioasys.ioasys_books.data.datasource.remote.BooksRemoteDataSource
 import br.com.ioasys.ioasys_books.data_remote.mappers.toDomain
 import br.com.ioasys.ioasys_books.data_remote.service.BookService
 import br.com.ioasys.ioasys_books.domain.model.Book
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class BooksDatasourceImpl(
+class BooksRemoteDataSourceImpl(
     private val bookService: BookService
-) : BooksDatasource {
+) : BooksRemoteDataSource {
 
     override fun getBooks(accessToken: String, query: String?): Flow<List<Book>> = flow {
         val response = bookService.getBooks(accessToken = "Bearer $accessToken", page = 1)
