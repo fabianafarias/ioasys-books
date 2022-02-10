@@ -13,30 +13,30 @@ class LoginViewModel(
     private val loginRepository: LoginRepository
 ) : ViewModel() {
 
-    private val _loggedUsedViewState = MutableLiveData<ViewState<String>>()
-    val loggedUsedViewState = _loggedUsedViewState as LiveData<ViewState<String>>
+    private val _loggedUserViewState = MutableLiveData<ViewState<String>>()
+    val loggedUserViewState = _loggedUserViewState as LiveData<ViewState<String>>
 
 
     fun login(email: String, password: String) {
 
         viewModelScope.launch {
 
-            _loggedUsedViewState.postLoading()
+            _loggedUserViewState.postLoading()
 
            try {
-               loginRepository.login(email, password).collect {
-                   if(it.name.isNotEmpty()) {
-                       _loggedUsedViewState.postSuccess(it.accessToken)
+               loginRepository.login(email, password).collect() {
+                   if(it.name.isEmpty().not()) {
+                       _loggedUserViewState.postSuccess(it.accessToken)
                    } else {
-                       _loggedUsedViewState.postError(Exception("Body do usuário vazio"))
+                       _loggedUserViewState.postError(Exception("Body do usuario vazio"))
                    }
                }
            } catch (err: Exception) {
-               _loggedUsedViewState.postError(err)
+               _loggedUserViewState.postError(err)
            }
         }
     }
     fun resetViewState(){
-        _loggedUsedViewState.postNeutral()
+        _loggedUserViewState.postNeutral()
     }
 }

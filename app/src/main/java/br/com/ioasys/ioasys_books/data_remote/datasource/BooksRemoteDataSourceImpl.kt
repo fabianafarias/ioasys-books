@@ -7,6 +7,7 @@ import br.com.ioasys.ioasys_books.domain.model.Book
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+
 class BooksRemoteDataSourceImpl(
     private val bookService: BookService
 ) : BooksRemoteDataSource {
@@ -16,15 +17,13 @@ class BooksRemoteDataSourceImpl(
         if (response.isSuccessful){
             response.body()?.data?.let { bookList ->
                 query?.let {
-                    emit(bookList.filter {  book ->
+                    emit(bookList.filter { book ->
                         book.name?.trim()?.contains(it, ignoreCase = true) ?: false
                     }.toDomain())
                 } ?: run {
                     emit(bookList.toDomain())
-                }}
-
+                }
             }
-
-
+        }
     }
 }

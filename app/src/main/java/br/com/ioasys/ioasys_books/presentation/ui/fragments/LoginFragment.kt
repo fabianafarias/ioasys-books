@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
 
 
     private fun addObserver(){
-        loginViewModel.loggedUsedViewState.observe(viewLifecycleOwner) { state ->
+        loginViewModel.loggedUserViewState.observe(viewLifecycleOwner) { state ->
 
             when(state){
                 is ViewState.Success -> {
