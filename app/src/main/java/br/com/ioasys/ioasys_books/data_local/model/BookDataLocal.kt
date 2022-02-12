@@ -1,12 +1,13 @@
 package br.com.ioasys.ioasys_books.data_local.model
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Books")
 data class BookDataLocal(
-    @PrimaryKey
-    val id: String? = null,
+    @PrimaryKey @NonNull
+    val id: String,
     val name: String? = null,
     val author: String? = null,
     val pages: String? = null,

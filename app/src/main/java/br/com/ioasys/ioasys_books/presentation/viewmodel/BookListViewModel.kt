@@ -10,8 +10,10 @@ import br.com.ioasys.ioasys_books.util.ViewState
 import br.com.ioasys.ioasys_books.util.postError
 import br.com.ioasys.ioasys_books.util.postLoading
 import br.com.ioasys.ioasys_books.util.postSuccess
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BookListViewModel(
     private val booksRepository: BooksRepository
@@ -26,6 +28,7 @@ class BookListViewModel(
             _bookListViewState.postLoading()
             try {
                 booksRepository.getBooks( input).collect {
+                    saveBooks(bookList = it)
                     if (it.isNotEmpty()) {
                         _bookListViewState.postSuccess(it)
                     } else {
@@ -37,4 +40,17 @@ class BookListViewModel(
             }
         }
     }
+
+    private fun saveBooks(bookList: List<Book>) {
+        viewModelScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    booksRepository.saveBooks(bookList = bookList)
+                }
+                print("success")
+            }catch (err: java.lang.Exception) {
+                print(err)
+            }
         }
+    }
+}

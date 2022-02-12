@@ -12,5 +12,5 @@ interface BookDao {
     fun addBooks(bookList: List<BookDataLocal>)
 
     @Query("SELECT * FROM Books")
-    fun getBooks(bookList: List<BookDataLocal>)
+    fun getBooks(): List<BookDataLocal>
 }
