@@ -1,3 +1,7 @@
 package br.com.ioasys.ioasys_books.domain.model.exception
 
-class LoginException : Exception()
+open class LoginException : Exception()
+
+class InvalidEmailException : LoginException()
+class InvalidPasswordException : LoginException()
+
