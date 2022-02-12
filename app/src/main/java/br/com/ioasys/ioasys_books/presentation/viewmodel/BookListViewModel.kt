@@ -27,16 +27,23 @@ class BookListViewModel(
         viewModelScope.launch {
             _bookListViewState.postLoading()
             try {
-                booksRepository.getBooks( input).collect {
-                    saveBooks(bookList = it)
-                    if (it.isNotEmpty()) {
-                        _bookListViewState.postSuccess(it)
-                    } else {
-                        _bookListViewState.postError(Exception("Algo deu errado"))
+                withContext(Dispatchers.IO) {
+                    booksRepository.getBooks( input).collect {
+                        withContext(Dispatchers.Main) {
+                            saveBooks(bookList = it)
+                            if (it.isNotEmpty()) {
+                                _bookListViewState.postSuccess(it)
+                            } else {
+                                _bookListViewState.postError(Exception("Algo deu errado"))
+                            }
+                        }
                     }
                 }
+
             } catch (err: Exception) {
-                _bookListViewState.postError(Exception(err))
+                withContext(Dispatchers.Main) {
+                    _bookListViewState.postError(Exception(err))
+                }
             }
         }
     }
@@ -47,9 +54,8 @@ class BookListViewModel(
                 withContext(Dispatchers.IO) {
                     booksRepository.saveBooks(bookList = bookList)
                 }
-                print("success")
             }catch (err: java.lang.Exception) {
-                print(err)
+                return@launch
             }
         }
     }
