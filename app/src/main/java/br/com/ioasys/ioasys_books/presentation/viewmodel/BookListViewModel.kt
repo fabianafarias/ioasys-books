@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.ioasys.ioasys_books.domain.model.Book
-import br.com.ioasys.ioasys_books.domain.repositories.BooksRepository
+import br.com.ioasys.ioasys_books.domain.usecase.GetBookListUseCase
+import br.com.ioasys.ioasys_books.domain.usecase.SaveBookListUseCase
 import br.com.ioasys.ioasys_books.util.ViewState
 import br.com.ioasys.ioasys_books.util.postError
 import br.com.ioasys.ioasys_books.util.postLoading
@@ -16,7 +17,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class BookListViewModel(
-    private val booksRepository: BooksRepository
+    private val getBookListUseCase: GetBookListUseCase,
+    private val saveBookListUseCase: SaveBookListUseCase
 ) : ViewModel(){
 
     private val _bookListViewState = MutableLiveData<ViewState<List<Book>>>()
@@ -28,18 +30,15 @@ class BookListViewModel(
             _bookListViewState.postLoading()
             try {
                 withContext(Dispatchers.IO) {
-                    booksRepository.getBooks( input).collect {
-                        withContext(Dispatchers.Main) {
-                            saveBooks(bookList = it)
-                            if (it.isNotEmpty()) {
-                                _bookListViewState.postSuccess(it)
-                            } else {
-                                _bookListViewState.postError(Exception("Algo deu errado"))
-                            }
-                        }
+                    getBookListUseCase(
+                        params = GetBookListUseCase.Params(
+                            input = input
+                        )
+                    ).collect {
+                        saveBooks(bookList = it)
+                        _bookListViewState.postSuccess(it)
                     }
                 }
-
             } catch (err: Exception) {
                 withContext(Dispatchers.Main) {
                     _bookListViewState.postError(Exception(err))
@@ -52,7 +51,11 @@ class BookListViewModel(
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
-                    booksRepository.saveBooks(bookList = bookList)
+                    saveBookListUseCase(
+                        params = SaveBookListUseCase.Params(
+                            bookList = bookList
+                        )
+                    )
                 }
             }catch (err: java.lang.Exception) {
                 return@launch
