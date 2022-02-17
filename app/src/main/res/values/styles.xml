@@ -9,7 +9,7 @@
 
     <style name="Book_Subtitle">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/subtitle</item>
+        <item name="android:textColor">@color/book_subtitle</item>
     </style>
 
     <style name="Book_Info">
