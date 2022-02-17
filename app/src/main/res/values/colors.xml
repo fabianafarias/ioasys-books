@@ -11,8 +11,12 @@
 
     <color name="title">#333333</color>
     <color name="title_50">#80333333</color>
-    <color name="subtitle">#AB2680</color>
+    <color name="book_subtitle">#AB2680</color>
     <color name="description">#999999</color>
+    <color name="text_color_hint">#80333333</color>
+    <color name="background_form">#52000000</color>
+    <color name="form_hint_text_color">#80FFFFFF</color>
+    <color name="enter_button_color">#B22E6F</color>
 
 
 </resources>

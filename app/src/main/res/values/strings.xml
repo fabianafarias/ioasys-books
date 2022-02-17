@@ -6,4 +6,27 @@
     <string name="logo_text">Books</string>
     <string name="email_hint">Email</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="book_authors">Tim Brown</string>
+    <string name="info_label">INFORMAÇÕES</string>
+    <string name="title_book">Change By Design</string>
+    <string name="close_button">Fechar</string>
+    <string name="book_pages_label">Páginas</string>
+    <string name="editor_book_label">Editora</string>
+    <string name="publish_book_label">Publicação</string>
+    <string name="language_book_label">Idioma</string>
+    <string name="origin_title_label">Título original</string>
+    <string name="isbn_10_label">ISBN-10</string>
+    <string name="isbn_13_label">ISBN-13</string>
+    <string name="book_pages">Páginas</string>
+    <string name="book_editor">Editora</string>
+    <string name="book_publish">Publicação</string>
+    <string name="book_language">Idioma</string>
+    <string name="origin_title_book">Título original</string>
+    <string name="isbn_10">ISBN-10</string>
+    <string name="isbn_13">ISBN-13</string>
+    <string name="editor_review">RESENHA DA EDITORA</string>
+    <string name="editor_review_text">The subject of “design thinking” is the rage at business schools, throughout corporations, and increasingly in the popular press—due in large part to the work of IDEO, a leading design firm, and its celebrated CEO, Tim Brown, who uses this book to show how the techniques and strategies of design belong at every level.</string>
+    <string name="book_title">Crossing the Chasm</string>
+    <string name="number_pages">150 páginas</string>
+    <string name="negative_notification">Não encontramos nenhum\n livro com esses termos.</string>
 </resources>

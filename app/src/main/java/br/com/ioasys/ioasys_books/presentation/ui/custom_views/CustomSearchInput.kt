@@ -52,7 +52,6 @@ class CustomSearchInput @JvmOverloads constructor(
             input.backgroundTintList = null
         else {
             input.backgroundTintList = ContextCompat.getColorStateList(context, android.R.color.white)
-
         }
 
     }

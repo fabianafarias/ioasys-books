@@ -16,10 +16,8 @@ class LoginRemoteDataSourceImpl(
         val accessToken = response.headers()["authorization"]
         if (response.isSuccessful){
             response.body()?.let { loginResponse ->
-                emit(loginResponse.toDomain(accessToken?: ""))
+                emit(loginResponse.toDomain(accessToken ?: ""))
             }
         }
     }
-
-
 }

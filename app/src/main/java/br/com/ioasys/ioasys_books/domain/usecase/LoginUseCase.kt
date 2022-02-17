@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 class LoginUseCase(
     private val loginRepository: LoginRepository,
     scope: CoroutineScope
-): UseCase<LoginUseCase.Params?, User>(scope = scope) {
+): UseCase<LoginUseCase.Params, User>(scope = scope) {
 
     override fun run(params: Params?): Flow<User> = when {
             params?.email?.isEmpty() == true -> throw InvalidEmailException()

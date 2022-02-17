@@ -49,7 +49,7 @@ class BookListAdapter(
              }
 
              root.setOnClickListener {
-                 onBookClickListener.onBooklickListener(book)
+                 onBookClickListener.onBookClickListener(book)
              }
          }
 

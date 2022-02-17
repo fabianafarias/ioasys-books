@@ -13,7 +13,6 @@ class LoginViewModel(
     private val _loggedUserViewState = MutableLiveData<ViewState<String>>()
     val loggedUserViewState = _loggedUserViewState as LiveData<ViewState<String>>
 
-
     fun login(email: String, password: String) {
         _loggedUserViewState.postLoading()
         loginUseCase(

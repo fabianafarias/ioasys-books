@@ -37,7 +37,7 @@
             android:layout_marginStart="16dp"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
             app:layout_constraintTop_toTopOf="@id/imgBook"
-            tools:text="Crossing the Chasm" />
+            tools:text="@string/book_title" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookAuthor"
@@ -47,7 +47,7 @@
             android:layout_marginStart="16dp"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
             app:layout_constraintTop_toBottomOf="@id/tvBookTitle"
-            tools:text="Geoffrey A. Moore" />
+            tools:text="@string/book_authors" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookPages"
@@ -58,7 +58,7 @@
             android:layout_marginTop="25dp"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
             app:layout_constraintTop_toBottomOf="@id/tvBookAuthor"
-            tools:text="150 páginas" />
+            tools:text="@string/number_pages" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookEditor"
@@ -68,7 +68,7 @@
             android:layout_marginStart="16dp"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
             app:layout_constraintTop_toBottomOf="@id/tvBookPages"
-            tools:text="Editora Loyola" />
+            tools:text="@string/book_editor" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookDate"
@@ -78,7 +78,7 @@
             android:layout_marginStart="16dp"
             app:layout_constraintLeft_toRightOf="@id/imgBook"
             app:layout_constraintTop_toBottomOf="@id/tvBookEditor"
-            tools:text="Publicado em 2020" />
+            tools:text="@string/book_publish" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

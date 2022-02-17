@@ -77,7 +77,7 @@ class BookListFragment : Fragment(), BookClickListener {
         binding.tvEmptyList.visibility =  if(hasError) View.VISIBLE else View.GONE
     }
 
-    override fun onBooklickListener(book: Book) {
+    override fun onBookClickListener(book: Book) {
         BookDetailsBottomSheet.newInstance(book).show(childFragmentManager, "book")
     }
 

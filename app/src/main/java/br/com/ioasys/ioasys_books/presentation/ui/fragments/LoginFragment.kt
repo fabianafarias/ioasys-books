@@ -22,7 +22,8 @@ class LoginFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View = FragmentLoginBinding.inflate(inflater, container, false).apply {
         _binding = this
@@ -30,10 +31,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.enterButton.setOnClickListener {
             setListener()
             addObserver()
-        }
     }
 
     private fun setListener() {

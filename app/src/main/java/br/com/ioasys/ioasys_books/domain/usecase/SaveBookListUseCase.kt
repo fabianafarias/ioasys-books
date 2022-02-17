@@ -17,8 +17,6 @@ class SaveBookListUseCase(
             bookList = params?.bookList ?: listOf()
     )
 )
-
-
     data class Params(
         val bookList: List<Book>
     )
