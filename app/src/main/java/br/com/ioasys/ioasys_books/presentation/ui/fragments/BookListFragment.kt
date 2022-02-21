@@ -34,6 +34,7 @@ class BookListFragment : Fragment(), BookClickListener {
         setBookListData()
         configureListeners()
         addObserver()
+        logOut()
     }
 
     private fun configureListeners(){
@@ -84,6 +85,14 @@ class BookListFragment : Fragment(), BookClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun logOut(){
+        binding.btLogout.setOnClickListener {
+            binding.run {
+                onDestroyView()
+            }
+        }
     }
 
 }
