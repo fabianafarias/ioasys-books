@@ -1,5 +1,6 @@
 package br.com.ioasys.ioasys_books.data_remote.service
 
+import br.com.ioasys.ioasys_books.data_remote.model.BookResponse
 import br.com.ioasys.ioasys_books.data_remote.model.BooksListResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,8 +13,12 @@ interface BookService {
     suspend fun getBooks(@Header("authorization") accessToken: String,
                          @Query("page") page: Int,
 
-    ):
+    ): Response<BooksListResponse>
 
-            Response<BooksListResponse>
+    @GET("books/{title}")
+    suspend fun searchBook(@Query("title") title: String
+    ): Response<BookResponse>
+
+
 
 }

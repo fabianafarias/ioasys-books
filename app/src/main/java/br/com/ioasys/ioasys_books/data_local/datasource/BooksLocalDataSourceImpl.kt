@@ -25,9 +25,9 @@ class BooksLocalDataSourceImpl(
     override fun getBooks(query: String?): Flow<List<Book>> = flow{
         val bookList = bookDao.getBooks().map { it.toDomain() }
         query?.let {
-            emit(bookList.filter { book ->
-                book.name.trim().contains(it, ignoreCase = true)
-            })
+            bookList.map { book ->
+                book.title.trim().contains(it, ignoreCase = true)
+            }
         } ?: run {
             emit(bookList)
         }

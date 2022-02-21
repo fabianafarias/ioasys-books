@@ -5,7 +5,7 @@ import br.com.ioasys.ioasys_books.domain.model.Book
 
 fun Book.toDao(): BookDataLocal = BookDataLocal(
     id = this.id,
-    name = this.name,
+    name = this.title,
     author = this.author,
     pages = this.pages,
     editor = this.editor,
@@ -20,7 +20,7 @@ fun Book.toDao(): BookDataLocal = BookDataLocal(
 
 fun BookDataLocal.toDomain(): Book = Book(
     id = this.id,
-    name = this.name ?: "",
+    title = this.name ?: "",
     author = this.author ?: "",
     pages = this.pages ?: "",
     editor = this.editor ?: "",

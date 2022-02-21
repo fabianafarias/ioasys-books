@@ -2,7 +2,7 @@ package br.com.ioasys.ioasys_books.domain.model
 
 data class Book(
     val id: String,
-    val name: String,
+    val title: String,
     val author: String = "Tim Brown",
     val pages: String = "150 páginas",
     val editor: String = "Editora Loyola",

@@ -39,7 +39,7 @@ class BookListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
      fun bind(book: Book) {
          binding.apply {
-             tvBookTitle.text = book.name
+             tvBookTitle.text = book.title
              tvBookAuthor.text = book.author
              tvBookPages.text = book.pages
              tvBookEditor.text = book.editor
